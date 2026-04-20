@@ -1,4 +1,3 @@
-
 h1.titulo {
     text-align: center;
 }
@@ -9,10 +8,13 @@ body p {
 }
 
 
+p:not([id]) {
+    background-color: rgba(190, 120, 240, 0.6);
+}
+
 #primer-parrafo {
     background-color: #CEE;
 }
-
 
 #primer-parrafo em {
     color: #933;
@@ -23,22 +25,16 @@ a {
     outline: 1px solid #333;
 }
 
-
-body p.fuente.parrafo {
-    opacity: 100% !important;
+p.fuente.parrafo {
+    opacity: 1;
+    color: #000;
 }
-
-
-p:not([id]) {
-    background-color: rgba(190, 120, 240, 0.6);
-}
-
-body p.fuente.parrafo {
-    color: #000 !important;
-}
-
 
 .complicado {
     font-weight: bold;
     color: #C62;
+}
+
+footer p {
+    background-color: transparent;
 }

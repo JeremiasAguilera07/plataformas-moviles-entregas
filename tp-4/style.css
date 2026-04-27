@@ -19,7 +19,7 @@ img {display: block; max-width: 100%; height: auto; margin: 0 auto; border-radiu
     }
 }
 
-@media screen and (orientation: portrait){
+@media screen and (orientation: landscape){
     article{
         max-width: 50ch;
     }

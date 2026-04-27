@@ -3,7 +3,9 @@ body {
 			background-color: #ffe;
 			color: #210;
 		}
-
+.titulo {
+	text-align: center;
+}
 		#contenedor {
 			max-width: 40ch;
 			margin: 2rem auto;
@@ -28,10 +30,6 @@ body {
 			font-weight: bold;
 			color: #144;
 		}
-
-		.titulo {
-	text-align: center;
-}
 		p.novelas a {
 			outline: none;
 			text-decoration: none;

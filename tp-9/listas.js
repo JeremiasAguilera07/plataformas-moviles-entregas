@@ -7,10 +7,6 @@ function invertirLista(listaDeNumeros) {
 console.log("invertirLista([2,3,4]): ", invertirLista([2,3,4]))
 
 
-n sumarLista(listaDeNumeros) {
-    return listaDeNumeros.reduce((acum, num) => acum + num, 0);
-}
-console.log("sumarLista([2,3,4]): ", sumarLista([2,3,4]))
 
 function contarElementosLista(listaDeNumeros) {
     return listaDeNumeros.length;

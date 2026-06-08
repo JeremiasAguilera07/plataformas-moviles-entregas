@@ -29,6 +29,16 @@ function triplicarLista(listaDeNumeros) {
 console.log("triplicarLista([1, 2, 3]): ", triplicarLista([1, 2, 3]));
 
 
+var listaNumerosEjemplo = [2,4,6,-1,5,-4,0];
+
+function sumarLista(listaDeNumeros) {
+    return listaDeNumeros.reduce((suma, numero) => suma + numero, 0);
+}
+
+function invertirLista(listaDeNumeros) {
+    return listaDeNumeros.slice().reverse();
+}
+
 
 function crearListaDeNumeros(inicio, fin) {
     let lista = [];

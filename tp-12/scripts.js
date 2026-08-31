@@ -7,15 +7,15 @@ const btnColor = document.getElementById('btn-color');
 const inputTamano = document.getElementById('input-tamano');
 const btnReset = document.getElementById('btn-reset');
 
-// Inicializar textarea con el texto actual
+
 inputTexto.value = texto.textContent;
 
-// Sincronizar textarea con el párrafo
+
 inputTexto.addEventListener('input', () => {
     texto.textContent = inputTexto.value;
 });
 
-// Estado de estilos
+
 const estadoEstilos = {
     negrita: false,
     cursiva: false,
@@ -41,7 +41,7 @@ function actualizarBotonEstado() {
         btnCursiva.classList.remove('active');
         btnCursiva.setAttribute('aria-pressed', 'false');
     }
-    // Subrayado
+   
     if (estadoEstilos.subrayado) {
         btnSubrayado.classList.add('active');
         btnSubrayado.setAttribute('aria-pressed', 'true');
@@ -49,7 +49,7 @@ function actualizarBotonEstado() {
         btnSubrayado.classList.remove('active');
         btnSubrayado.setAttribute('aria-pressed', 'false');
     }
-    // Color
+   
     if (estadoEstilos.colorIndex === 0) {
         btnColor.classList.remove('active');
         btnColor.setAttribute('aria-pressed', 'false');
@@ -133,7 +133,7 @@ document.querySelectorAll('button.btn').forEach(e => e.addEventListener('click',
 inputTamano.addEventListener('input', cambiarTamano);
 btnReset.addEventListener('click', resetearEstilos);
 
-// Inicializar estilos y tamaño
+
 aplicarEstilos();
 actualizarBotonEstado();
 cambiarTamano();

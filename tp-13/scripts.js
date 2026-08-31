@@ -3,23 +3,23 @@ const formProducto = document.getElementById('form-producto');
 const btnOrdenar = document.getElementById('btn-ordenar');
 const btnLimpiar = document.getElementById('btn-limpiar');
 
-// Cargar lista desde localStorage o iniciar con producto "Pan"
+
 let listaProductos = JSON.parse(localStorage.getItem('listaProductos')) || [
     { nombre: 'Pan', comprado: false }
 ];
 
-// Guardar lista en localStorage
+
 function guardarLista() {
     localStorage.setItem('listaProductos', JSON.stringify(listaProductos));
 }
 
-// Crear elemento <li> para un producto
+
 function crearElementoProducto(producto, index) {
     const li = document.createElement('li');
     li.className = 'list-group-item producto-item';
     li.setAttribute('data-index', index);
 
-    // Checkbox para marcar comprado
+    
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.className = 'form-check-input me-2';
@@ -35,7 +35,7 @@ function crearElementoProducto(producto, index) {
         guardarLista();
     });
 
-    // Span editable para nombre
+    
     const nombreSpan = document.createElement('span');
     nombreSpan.className = 'producto-nombre';
     nombreSpan.textContent = producto.nombre;
@@ -46,18 +46,18 @@ function crearElementoProducto(producto, index) {
     nombreSpan.setAttribute('role', 'textbox');
     nombreSpan.setAttribute('aria-label', 'Nombre del producto editable');
 
-    // Permitir editar con doble clic
+    
     nombreSpan.addEventListener('dblclick', () => {
         nombreSpan.contentEditable = "true";
         nombreSpan.focus();
     });
 
-    // Guardar cambios al perder foco o presionar Enter
+   
     function guardarEdicion() {
         nombreSpan.contentEditable = "false";
         const nuevoNombre = nombreSpan.textContent.trim();
         if (nuevoNombre.length === 0) {
-            // Si queda vacío, restaurar nombre anterior
+          
             nombreSpan.textContent = listaProductos[index].nombre;
         } else {
             listaProductos[index].nombre = nuevoNombre;
@@ -73,7 +73,7 @@ function crearElementoProducto(producto, index) {
         }
     });
 
-    // Botón eliminar
+    
     const btnEliminar = document.createElement('button');
     btnEliminar.className = 'btn btn-sm btn-danger btn-eliminar';
     btnEliminar.setAttribute('aria-label', 'Eliminar producto');
@@ -91,7 +91,7 @@ function crearElementoProducto(producto, index) {
     return li;
 }
 
-// Renderizar lista completa
+
 function renderizarLista() {
     listaProductosEl.innerHTML = '';
     listaProductos.forEach((producto, index) => {
@@ -100,7 +100,7 @@ function renderizarLista() {
     });
 }
 
-// Agregar producto nuevo
+
 function agregarProducto(nombreProducto) {
     const nombreTrim = nombreProducto.trim();
     if (nombreTrim.length === 0) return;
@@ -109,14 +109,14 @@ function agregarProducto(nombreProducto) {
     guardarLista();
 }
 
-// Ordenar productos alfabéticamente
+
 function ordenarProductos() {
     listaProductos.sort((a, b) => a.nombre.localeCompare(b.nombre));
     renderizarLista();
     guardarLista();
 }
 
-// Limpiar lista completa
+
 function limpiarLista() {
     if (confirm('¿Seguro que quieres limpiar toda la lista?')) {
         listaProductos = [];
@@ -125,7 +125,6 @@ function limpiarLista() {
     }
 }
 
-// Manejador formulario
 function handlerFormulario(evento) {
     evento.preventDefault();
     const input = evento.target.querySelector('input');
@@ -134,10 +133,10 @@ function handlerFormulario(evento) {
     agregarProducto(nombreProducto);
 }
 
-// Eventos
+
 formProducto.addEventListener('submit', handlerFormulario);
 btnOrdenar.addEventListener('click', ordenarProductos);
 btnLimpiar.addEventListener('click', limpiarLista);
 
-// Inicializar renderizado
+
 renderizarLista();
